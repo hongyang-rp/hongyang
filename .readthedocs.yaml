@@ -20,3 +20,12 @@ sphinx:
 python:
    install:
    - requirements: source/requirements.txt
+
+# Compile translations before building
+build:
+  os: ubuntu-24.04
+  tools:
+    python: "3.13"
+  jobs:
+    pre_build:
+      - sphinx-intl build --locale-dir source/locale
